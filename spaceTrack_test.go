@@ -5,7 +5,7 @@ import (
 	"log"
 	"testing"
 
-	"github.com/shibingli/spacetrac/entity"
+	"github.com/shibingli/spacetrack/entity"
 )
 
 var (

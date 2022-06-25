@@ -8,7 +8,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/shibingli/spacetrac/utils"
+	"github.com/shibingli/spacetrack/utils"
 )
 
 type BuildCommand struct {

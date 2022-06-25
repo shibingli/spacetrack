@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/shibingli/spacetrac/utils"
+	"github.com/shibingli/spacetrack/utils"
 )
 
 type Auth struct {
