@@ -6,8 +6,9 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"spacetrack/utils"
 	"strings"
+
+	"github.com/shibingli/spacetrac/utils"
 )
 
 type BuildCommand struct {

@@ -3,8 +3,9 @@ package spacetrack
 import (
 	"encoding/json"
 	"log"
-	"spacetrack/entity"
 	"testing"
+
+	"github.com/shibingli/spacetrac/entity"
 )
 
 var (

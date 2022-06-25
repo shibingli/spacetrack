@@ -1,7 +1,7 @@
 package spacetrack
 
 import (
-	"spacetrack/utils"
+	"github.com/shibingli/spacetrac/utils"
 )
 
 type SpaceTrack struct {

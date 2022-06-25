@@ -6,8 +6,9 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"spacetrack/utils"
 	"strings"
+
+	"github.com/shibingli/spacetrac/utils"
 )
 
 type Auth struct {
