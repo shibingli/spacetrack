@@ -18,12 +18,12 @@ const (
 	RequestClassesBoxScore          = "boxscore"
 	RequestClassesCdmPublic         = "cdm_public"
 	RequestClassesDecay             = "decay"
-	RequestClassesDirs              = "dirs"              //GET
+	RequestClassesDirs              = "dirs"
 	RequestClassesGetPublicDataFile = "getpublicdatafile" //POST
 	RequestClassesGp                = "gp"
 	RequestClassesGpHistory         = "gp_history"
 	RequestClassesLaunchSite        = "launch_site"
-	RequestClassesLoadPublicData    = "loadpublicdata" //GET
+	RequestClassesLoadPublicData    = "loadpublicdata"
 	RequestClassesOMM               = "omm"
 	RequestClassesSatcat            = "satcat"
 	RequestClassesSatcatChange      = "satcat_change"

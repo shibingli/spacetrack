@@ -18,56 +18,62 @@ type BuildCommand struct {
 	StreamData bool
 }
 
-func (b *BuildCommand) Predicates(column string) *BuildCommand {
+func (b *BuildCommand) Predicate(column string) *BuildCommand {
 	column = utils.PathCleanSep(column)
-	b.Paths = append(b.Paths, column)
+	b.Paths = append(b.Paths, url.PathEscape(column))
+	return b
+}
+
+func (b *BuildCommand) EQ(value string) *BuildCommand {
+	value = utils.PathCleanSep(value)
+	b.Paths = append(b.Paths, url.PathEscape(value))
 	return b
 }
 
 func (b *BuildCommand) GT(value string) *BuildCommand {
 	value = utils.PathCleanSep(value)
-	b.Paths = append(b.Paths, url.PathEscape(RESTOperatorsGT)+value)
+	b.Paths = append(b.Paths, url.PathEscape(RESTOperatorsGT+value))
 	return b
 }
 
 func (b *BuildCommand) LT(value string) *BuildCommand {
 	value = utils.PathCleanSep(value)
-	b.Paths = append(b.Paths, url.PathEscape(RESTOperatorsLT)+value)
+	b.Paths = append(b.Paths, url.PathEscape(RESTOperatorsLT+value))
 	return b
 }
 
 func (b *BuildCommand) NE(value string) *BuildCommand {
 	value = utils.PathCleanSep(value)
-	b.Paths = append(b.Paths, url.PathEscape(RESTOperatorsNE)+value)
+	b.Paths = append(b.Paths, url.PathEscape(RESTOperatorsNE+value))
 	return b
 }
 
 func (b *BuildCommand) OR(value ...string) *BuildCommand {
-	b.Paths = append(b.Paths, strings.Join(value, RESTOperatorsOR))
+	b.Paths = append(b.Paths, url.PathEscape(strings.Join(value, RESTOperatorsOR)))
 	return b
 }
 
 func (b *BuildCommand) Range(start, end string) *BuildCommand {
 	start = utils.PathCleanSep(start)
 	end = utils.PathCleanSep(end)
-	b.Paths = append(b.Paths, start+RESTOperatorsRange+end)
+	b.Paths = append(b.Paths, url.PathEscape(start+RESTOperatorsRange+end))
 	return b
 }
 
 func (b *BuildCommand) Like(value string) *BuildCommand {
 	value = utils.PathCleanSep(value)
-	b.Paths = append(b.Paths, RESTOperatorsLike+value)
+	b.Paths = append(b.Paths, url.PathEscape(RESTOperatorsLike+value))
 	return b
 }
 
 func (b *BuildCommand) Wildcard(value string) *BuildCommand {
 	value = utils.PathCleanSep(value)
-	b.Paths = append(b.Paths, RESTOperatorsWildcard+value)
+	b.Paths = append(b.Paths, url.PathEscape(RESTOperatorsWildcard+value))
 	return b
 }
 
 func (b *BuildCommand) NullValue() *BuildCommand {
-	b.Paths = append(b.Paths, RESTOperatorsNullValue)
+	b.Paths = append(b.Paths, url.PathEscape(RESTOperatorsNullValue))
 	return b
 }
 
@@ -109,7 +115,7 @@ func (b *BuildCommand) Limit(size int, offset ...int) *BuildCommand {
 		sb.WriteString(utils.ToStr(offset[0]))
 	}
 
-	b.Paths = append(b.Paths, RESTPredicatesLimit, sb.String())
+	b.Paths = append(b.Paths, RESTPredicatesLimit, url.PathEscape(sb.String()))
 	return b
 }
 
