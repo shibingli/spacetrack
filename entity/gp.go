@@ -1,5 +1,10 @@
 package entity
 
+import (
+	"github.com/SharkEzz/sgp4"
+	"strings"
+)
+
 type GP struct {
 	CCSDSOmmVers       string `json:"CCSDS_OMM_VERS" xml:"CCSDS_OMM_VERS"`
 	Comment            string `json:"COMMENT" xml:"COMMENT"`
@@ -41,4 +46,34 @@ type GP struct {
 	TLELine0           string `json:"TLE_LINE0" xml:"TLE_LINE0"`
 	TLELine1           string `json:"TLE_LINE1" xml:"TLE_LINE1"`
 	TLELine2           string `json:"TLE_LINE2" xml:"TLE_LINE2"`
+}
+
+func (g *GP) TLE() (*sgp4.TLE, error) {
+	name := g.TLELine0
+	names := strings.Fields(name)
+
+	if len(names) > 1 {
+		name = strings.Join(names[1:], " ")
+	}
+
+	tle, err := sgp4.NewTLE(name, g.TLELine1, g.TLELine2)
+	if err != nil {
+		return nil, err
+	}
+
+	return tle, nil
+}
+
+func (g *GP) SGP4() (*sgp4.SGP4, error) {
+	tle, err := g.TLE()
+	if err != nil {
+		return nil, err
+	}
+
+	sgp, err := sgp4.NewSGP4(tle)
+	if err != nil {
+		return nil, err
+	}
+
+	return sgp, nil
 }
