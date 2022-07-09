@@ -63,7 +63,7 @@ func TestBasicSpaceDataController_QuerySatcat(t *testing.T) {
 		OrderBy("norad_cat_id", "desc").
 		Limit(10).
 		FormatJSON().
-		Do(&satcat, stc)
+		Build(&satcat, stc)
 	if err != nil {
 		t.Fatalf("%+v", err.Error())
 	}
@@ -95,7 +95,7 @@ func TestBasicSpaceDataController_QueryGP(t *testing.T) {
 		OR("52882").
 		Limit(1).
 		FormatJSON().
-		Do(&gp, stc)
+		Build(&gp, stc)
 	if err != nil {
 		t.Fatalf("%+v", err.Error())
 	}

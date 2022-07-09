@@ -55,7 +55,7 @@ func main() {
 		OrderBy("norad_cat_id", "desc").
 		Limit(10).
 		FormatJSON().
-		Do(&satcat)
+		Build(&satcat)
 	if err != nil {
 		log.Fatalf("%+v", err)
 	}

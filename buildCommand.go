@@ -171,21 +171,9 @@ type BuildCodec interface {
 	Write(p []byte) (n int, err error)
 }
 
-func (b *BuildCommand) Do(entity any, codec ...BuildCodec) error {
+func (b *BuildCommand) Build(entity any, codec ...BuildCodec) error {
 
-	reqUrl := strings.Join(b.Paths, utils.URLSeparator)
-
-	resp, err := utils.NewHttpClient(
-		b.Method,
-		reqUrl,
-		nil,
-		&utils.HttpClientOpts{
-			DisableCompression: false,
-			DisableKeepAlives:  false,
-			Cookies:            b.Cookies,
-		},
-	)
-
+	resp, err := b.Do()
 	if err != nil {
 		return err
 	}
@@ -203,23 +191,9 @@ func (b *BuildCommand) Do(entity any, codec ...BuildCodec) error {
 
 		if len(codec) > 0 {
 			return codec[0].Unmarshal(body, &entity)
-		} else {
-			return json.Unmarshal(body, &entity)
 		}
-	case http.StatusNoContent:
-		if len(codec) > 0 {
-			_, err := io.Copy(codec[0], resp.Body)
-			if err != nil {
-				return err
-			}
-		} else {
-			return fmt.Errorf(
-				utils.HttpResultFormat,
-				600,
-				"Unavailable BuildCodec!!!",
-			)
-		}
-		return nil
+
+		return json.Unmarshal(body, &entity)
 	case http.StatusForbidden:
 		body, err := io.ReadAll(resp.Body)
 		if err != nil {
@@ -243,4 +217,20 @@ func (b *BuildCommand) Do(entity any, codec ...BuildCodec) error {
 			string(body),
 		)
 	}
+}
+
+func (b *BuildCommand) Do() (*http.Response, error) {
+
+	reqUrl := strings.Join(b.Paths, utils.URLSeparator)
+
+	return utils.NewHttpClient(
+		b.Method,
+		reqUrl,
+		nil,
+		&utils.HttpClientOpts{
+			DisableCompression: false,
+			DisableKeepAlives:  false,
+			Cookies:            b.Cookies,
+		},
+	)
 }
