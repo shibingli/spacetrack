@@ -6,46 +6,46 @@ import (
 )
 
 type GP struct {
-	CCSDSOmmVers       string `json:"CCSDS_OMM_VERS" xml:"CCSDS_OMM_VERS"`
-	Comment            string `json:"COMMENT" xml:"COMMENT"`
-	CreationDate       string `json:"CREATION_DATE" xml:"CREATION_DATE"`
-	Originator         string `json:"ORIGINATOR" xml:"ORIGINATOR"`
-	ObjectName         string `json:"OBJECT_NAME" xml:"OBJECT_NAME"`
-	ObjectID           string `json:"OBJECT_ID" xml:"OBJECT_ID"`
-	CenterName         string `json:"CENTER_NAME" xml:"CENTER_NAME"`
-	RefFrame           string `json:"REF_FRAME" xml:"REF_FRAME"`
-	TimeSystem         string `json:"TIME_SYSTEM" xml:"TIME_SYSTEM"`
-	MeanElementTheory  string `json:"MEAN_ELEMENT_THEORY" xml:"MEAN_ELEMENT_THEORY"`
-	Epoch              string `json:"EPOCH" xml:"EPOCH"`
-	MeanMotion         string `json:"MEAN_MOTION" xml:"MEAN_MOTION"`
-	Eccentricity       string `json:"ECCENTRICITY" xml:"ECCENTRICITY"`
-	Inclination        string `json:"INCLINATION" xml:"INCLINATION"`
-	RaOfAscNode        string `json:"RA_OF_ASC_NODE" xml:"RA_OF_ASC_NODE"`
-	ArgOfPericenter    string `json:"ARG_OF_PERICENTER" xml:"ARG_OF_PERICENTER"`
-	MeanAnomaly        string `json:"MEAN_ANOMALY" xml:"MEAN_ANOMALY"`
-	EphemerisType      string `json:"EPHEMERIS_TYPE" xml:"EPHEMERIS_TYPE"`
-	ClassificationType string `json:"CLASSIFICATION_TYPE" xml:"CLASSIFICATION_TYPE"`
-	NoradCatID         string `json:"NORAD_CAT_ID" xml:"NORAD_CAT_ID"`
-	ElementSetNO       string `json:"ELEMENT_SET_NO" xml:"ELEMENT_SET_NO"`
-	RevAtEpoch         string `json:"REV_AT_EPOCH" xml:"REV_AT_EPOCH"`
-	Bstar              string `json:"BSTAR" xml:"BSTAR"`
-	MeanMotionDot      string `json:"MEAN_MOTION_DOT" xml:"MEAN_MOTION_DOT"`
-	MeanMotionDDot     string `json:"MEAN_MOTION_DDOT" xml:"MEAN_MOTION_DDOT"`
-	SemimajorAxis      string `json:"SEMIMAJOR_AXIS" xml:"SEMIMAJOR_AXIS"`
-	Period             string `json:"PERIOD" xml:"PERIOD"`
-	Apoapsis           string `json:"APOAPSIS" xml:"APOAPSIS"`
-	Periapsis          string `json:"PERIAPSIS" xml:"PERIAPSIS"`
-	ObjectType         string `json:"OBJECT_TYPE" xml:"OBJECT_TYPE"`
-	RcsSize            string `json:"RCS_SIZE" xml:"RCS_SIZE"`
-	CountryCode        string `json:"COUNTRY_CODE" xml:"COUNTRY_CODE"`
-	LaunchDate         string `json:"LAUNCH_DATE" xml:"LAUNCH_DATE"`
-	Site               string `json:"SITE" xml:"SITE"`
-	DecayDate          string `json:"DECAY_DATE" xml:"DECAY_DATE"`
-	File               string `json:"FILE" xml:"FILE"`
-	GpID               string `json:"GP_ID" xml:"GP_ID"`
-	TLELine0           string `json:"TLE_LINE0" xml:"TLE_LINE0"`
-	TLELine1           string `json:"TLE_LINE1" xml:"TLE_LINE1"`
-	TLELine2           string `json:"TLE_LINE2" xml:"TLE_LINE2"`
+	CCSDSOmmVers       string `json:"CCSDS_OMM_VERS,omitempty" xml:"CCSDS_OMM_VERS,omitempty" bson:"ccsds_omm_vers,omitempty"`
+	Comment            string `json:"COMMENT,omitempty" xml:"COMMENT,omitempty" bson:"comment,omitempty"`
+	CreationDate       string `json:"CREATION_DATE,omitempty" xml:"CREATION_DATE,omitempty" bson:"creation_date,omitempty"`
+	Originator         string `json:"ORIGINATOR,omitempty" xml:"ORIGINATOR,omitempty" bson:"originator,omitempty"`
+	ObjectName         string `json:"OBJECT_NAME,omitempty" xml:"OBJECT_NAME,omitempty" bson:"object_name,omitempty"`
+	ObjectID           string `json:"OBJECT_ID,omitempty" xml:"OBJECT_ID,omitempty" bson:"object_id,omitempty"`
+	CenterName         string `json:"CENTER_NAME,omitempty" xml:"CENTER_NAME,omitempty" bson:"center_name,omitempty"`
+	RefFrame           string `json:"REF_FRAME,omitempty" xml:"REF_FRAME,omitempty" bson:"ref_frame,omitempty"`
+	TimeSystem         string `json:"TIME_SYSTEM,omitempty" xml:"TIME_SYSTEM,omitempty" bson:"time_system,omitempty"`
+	MeanElementTheory  string `json:"MEAN_ELEMENT_THEORY,omitempty" xml:"MEAN_ELEMENT_THEORY,omitempty" bson:"mean_element_theory,omitempty"`
+	Epoch              string `json:"EPOCH,omitempty" xml:"EPOCH,omitempty" bson:"epoch,omitempty"`
+	MeanMotion         string `json:"MEAN_MOTION,omitempty" xml:"MEAN_MOTION,omitempty" bson:"mean_motion,omitempty"`
+	Eccentricity       string `json:"ECCENTRICITY,omitempty" xml:"ECCENTRICITY,omitempty" bson:"eccentricity,omitempty"`
+	Inclination        string `json:"INCLINATION,omitempty" xml:"INCLINATION,omitempty" bson:"inclination,omitempty"`
+	RaOfAscNode        string `json:"RA_OF_ASC_NODE,omitempty" xml:"RA_OF_ASC_NODE,omitempty" bson:"ra_of_asc_node,omitempty"`
+	ArgOfPericenter    string `json:"ARG_OF_PERICENTER,omitempty" xml:"ARG_OF_PERICENTER,omitempty" bson:"arg_of_pericenter,omitempty"`
+	MeanAnomaly        string `json:"MEAN_ANOMALY,omitempty" xml:"MEAN_ANOMALY,omitempty" bson:"mean_anomaly,omitempty"`
+	EphemerisType      string `json:"EPHEMERIS_TYPE,omitempty" xml:"EPHEMERIS_TYPE,omitempty" bson:"ephemeris_type,omitempty"`
+	ClassificationType string `json:"CLASSIFICATION_TYPE,omitempty" xml:"CLASSIFICATION_TYPE,omitempty" bson:"classification_type,omitempty"`
+	NoradCatID         string `json:"NORAD_CAT_ID,omitempty" xml:"NORAD_CAT_ID,omitempty" bson:"norad_cat_id,omitempty"`
+	ElementSetNO       string `json:"ELEMENT_SET_NO,omitempty" xml:"ELEMENT_SET_NO,omitempty" bson:"element_set_no,omitempty"`
+	RevAtEpoch         string `json:"REV_AT_EPOCH,omitempty" xml:"REV_AT_EPOCH,omitempty" bson:"rev_at_epoch,omitempty"`
+	Bstar              string `json:"BSTAR,omitempty" xml:"BSTAR,omitempty" bson:"bstar,omitempty"`
+	MeanMotionDot      string `json:"MEAN_MOTION_DOT,omitempty" xml:"MEAN_MOTION_DOT,omitempty" bson:"mean_motion_dot,omitempty"`
+	MeanMotionDDot     string `json:"MEAN_MOTION_DDOT,omitempty" xml:"MEAN_MOTION_DDOT,omitempty" bson:"mean_motion_d_dot,omitempty"`
+	SemimajorAxis      string `json:"SEMIMAJOR_AXIS,omitempty" xml:"SEMIMAJOR_AXIS,omitempty" bson:"semimajor_axis,omitempty"`
+	Period             string `json:"PERIOD,omitempty" xml:"PERIOD,omitempty" bson:"period,omitempty"`
+	Apoapsis           string `json:"APOAPSIS,omitempty" xml:"APOAPSIS,omitempty" bson:"apoapsis,omitempty"`
+	Periapsis          string `json:"PERIAPSIS,omitempty" xml:"PERIAPSIS,omitempty" bson:"periapsis,omitempty"`
+	ObjectType         string `json:"OBJECT_TYPE,omitempty" xml:"OBJECT_TYPE,omitempty" bson:"object_type,omitempty"`
+	RcsSize            string `json:"RCS_SIZE,omitempty" xml:"RCS_SIZE,omitempty" bson:"rcs_size,omitempty"`
+	CountryCode        string `json:"COUNTRY_CODE,omitempty" xml:"COUNTRY_CODE,omitempty" bson:"country_code,omitempty"`
+	LaunchDate         string `json:"LAUNCH_DATE,omitempty" xml:"LAUNCH_DATE,omitempty" bson:"launch_date,omitempty"`
+	Site               string `json:"SITE,omitempty" xml:"SITE,omitempty" bson:"site,omitempty"`
+	DecayDate          string `json:"DECAY_DATE,omitempty" xml:"DECAY_DATE,omitempty" bson:"decay_date,omitempty"`
+	File               string `json:"FILE,omitempty" xml:"FILE,omitempty" bson:"file,omitempty"`
+	GpID               string `json:"GP_ID,omitempty" xml:"GP_ID,omitempty" bson:"gp_id,omitempty"`
+	TLELine0           string `json:"TLE_LINE0,omitempty" xml:"TLE_LINE0,omitempty" bson:"tle_line_0,omitempty"`
+	TLELine1           string `json:"TLE_LINE1,omitempty" xml:"TLE_LINE1,omitempty" bson:"tle_line_1,omitempty"`
+	TLELine2           string `json:"TLE_LINE2,omitempty" xml:"TLE_LINE2,omitempty" bson:"tle_line_2,omitempty"`
 }
 
 func (g *GP) TLE() (*sgp4.TLE, error) {
