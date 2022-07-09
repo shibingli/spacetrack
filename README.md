@@ -50,7 +50,7 @@ func main() {
 
 	err = st.BasicSpaceDataController().
 		QuerySatcat().
-		Predicates("satname").
+		Predicate("satname").
 		Like("starlink").
 		OrderBy("norad_cat_id", "desc").
 		Limit(10).
