@@ -1,8 +1,8 @@
 package entity
 
 import (
-	"github.com/SharkEzz/sgp4"
-	"strings"
+	"github.com/shibingli/spacetrack/internal/satellite"
+	"time"
 )
 
 type GP struct {
@@ -48,32 +48,6 @@ type GP struct {
 	TLELine2           string `json:"TLE_LINE2,omitempty" xml:"TLE_LINE2,omitempty" bson:"tle_line_2,omitempty"`
 }
 
-func (g *GP) TLE() (*sgp4.TLE, error) {
-	name := g.TLELine0
-	names := strings.Fields(name)
-
-	if len(names) > 1 {
-		name = strings.Join(names[1:], " ")
-	}
-
-	tle, err := sgp4.NewTLE(name, g.TLELine1, g.TLELine2)
-	if err != nil {
-		return nil, err
-	}
-
-	return tle, nil
-}
-
-func (g *GP) SGP4() (*sgp4.SGP4, error) {
-	tle, err := g.TLE()
-	if err != nil {
-		return nil, err
-	}
-
-	sgp, err := sgp4.NewSGP4(tle)
-	if err != nil {
-		return nil, err
-	}
-
-	return sgp, nil
+func (g *GP) SGP4Position(utcTime time.Time) *satellite.LLA {
+	return satellite.LatLonAlt(g.TLELine1, g.TLELine2, utcTime)
 }
